@@ -105,76 +105,6 @@ function DeathBadge(x,y)
 
 function DoMyWindow0 (windowID : int) 
 {
-	// use the spike function to add the spikes
-	// note: were passing the width of the window to the function
-		AddSpikes(windowRect0.width);
-
-		GUILayout.BeginVertical();
-		GUILayout.Space(8);
-		GUILayout.Label("", "Divider");//-------------------------------- custom
-        GUILayout.Label("Standard Label");
-		GUILayout.Label("Short Label", "ShortLabel");//-------------------------------- custom
-		GUILayout.Label("", "Divider");//-------------------------------- custom
-		GUILayout.Button("Standard Button");
-		GUILayout.Button("Short Button", "ShortButton");//-------------------------------- custom
-		GUILayout.Label("", "Divider");//-------------------------------- custom
-		ToggleBTN = GUILayout.Toggle(ToggleBTN, "This is a Toggle Button");
-		GUILayout.Label("", "Divider");//-------------------------------- custom
-		GUILayout.Box("This is a textbox\n this can be expanded by using \\n");
-		GUILayout.TextField("This is a textfield\n You cant see this text!!");
-        GUILayout.TextArea("This is a textArea\n this can be expanded by using \\n");
-		GUILayout.EndVertical();
-		
-		// Make the windows be draggable.
-		GUI.DragWindow (Rect (0,0,10000,10000));
-}
-
-function DoMyWindow1 (windowID : int) 
-{
-		// use the spike function to add the spikes
-		AddSpikes(windowRect1.width);
-		
-		GUILayout.BeginVertical();
-		GUILayout.Label ("", "Divider");//-------------------------------- custom
-		GUILayout.Label ("Plain Text", "PlainText");//------------------------------------ custom
-		GUILayout.Label ("Italic Text", "ItalicText");//---------------------------------- custom
-		GUILayout.Label ("Light Text", "LightText");//----------------------------------- custom
-		GUILayout.Label ("Bold Text", "BoldText");//------------------------------------- custom
-		GUILayout.Label ("Disabled Text", "DisabledText");//-------------------------- custom
-		GUILayout.Label ("Cursed Text", "CursedText");//------------------- custom
-		GUILayout.Label ("Legendary Text", "LegendaryText");//-------------------- custom
-		GUILayout.Label ("Outlined Text", "OutlineText");//--------------------------- custom
-		GUILayout.Label ("Italic Outline Text", "ItalicOutlineText");//---------------------------------- custom
-		GUILayout.Label ("Light Outline Text", "LightOutlineText");//----------------------------------- custom
-		GUILayout.Label ("Bold Outline Text", "BoldOutlineText");//----------------- custom
-		GUILayout.EndVertical();
-		// Make the windows be draggable.
-		GUI.DragWindow (Rect (0,0,10000,10000));
-}
-
-function DoMyWindow2 (windowID : int) 
-{
-		// use the spike function to add the spikes
-		AddSpikes(windowRect2.width);
-
-		GUILayout.Space(8);
-		GUILayout.BeginVertical();
-		GUILayout.BeginHorizontal();
-		scrollPosition = GUILayout.BeginScrollView(scrollPosition, true, true);
-        GUILayout.Label (NecroText, "PlainText");
-        GUILayout.EndScrollView();
-		GUILayout.EndHorizontal();
-		GUILayout.Space(8);
-		HroizSliderValue = GUILayout.HorizontalSlider(HroizSliderValue, 0.0, 1.1);
-        VertSliderValue = GUILayout.VerticalSlider(VertSliderValue, 0.0, 1.1, GUILayout.Height(70));
-		DeathBadge(200,350);
-        GUILayout.EndVertical();
-		GUI.DragWindow (Rect (0,0,10000,10000));
-}
-
-//bringing it all together
-function DoMyWindow3 (windowID : int) 
-{
 		// use the spike function to add the spikes
 		AddSpikes(windowRect3.width);
 		
@@ -183,27 +113,24 @@ function DoMyWindow3 (windowID : int)
 
 		GUILayout.Space(8);
 		GUILayout.BeginVertical();
-		GUILayout.Label("Necromancer");
+		GUILayout.Label("At The Gates");
 		GUILayout.Label ("", "Divider");
-		GUILayout.Label ("Necromancer is a free to use GUI for the unity community. this skin can be used in commercial and non-commercial products.", "LightText");
+		GUILayout.Label ("Welcome to At The Gates! Hellions will swarm \n three lanes and its up to you ,St. Michael, to slay them. Goodluck!",  "LightText");
 		GUILayout.Label ("", "Divider");
 		GUILayout.Space(8);
-		doWindow0 = GUILayout.Toggle(doWindow0, "Standard Components");
-		doWindow1 = GUILayout.Toggle(doWindow1, "Text Examples");
-		doWindow2 = GUILayout.Toggle(doWindow2, "Sliders");
 		GUILayout.Space(8);
-		GUILayout.Label ("", "Divider");
-        GUILayout.Label ("Please read through the source of this script to see", "PlainText");
+
+		if(GUILayout.Button("Click to Play")){
+		Application.LoadLevel("project3");}
+        GUILayout.Space(8);
+		GUILayout.Space(8);
 		GUILayout.BeginHorizontal();
-		GUILayout.Label ("how to use special ", "PlainText");
-		GUILayout.Label ("Components ", "LegendaryText");
-		GUILayout.Label ("and ", "PlainText");
-		GUILayout.Label ("Functions ", "CursedText");
-		GUILayout.Label ("!", "PlainText");
+
+	
 		GUILayout.EndHorizontal();
 		GUILayout.Label ("", "Divider");
 		GUILayout.Space(26);
-		GUILayout.Label ("Created By Jason Wentzel 2011", "SingleQuotes");
+
         GUILayout.EndVertical();
 		
 		// add a wax seal at the bottom of the window
@@ -223,24 +150,5 @@ if (doWindow0)
 	// End the group we started above. This is very important to remember!
 	GUI.EndGroup ();
 	
-if (doWindow1)
-	windowRect1 = GUI.Window (1, windowRect1, DoMyWindow1, "");
-	//now adjust to the group. (0,0) is the topleft corner of the group.
-	GUI.BeginGroup (Rect (0,0,100,100));
-	// End the group we started above. This is very important to remember!
-	GUI.EndGroup ();
-	
-if (doWindow2)
-	windowRect2 = GUI.Window (2, windowRect2, DoMyWindow2, "");
-	//now adjust to the group. (0,0) is the topleft corner of the group.
-	GUI.BeginGroup (Rect (0,0,100,100));
-	// End the group we started above. This is very important to remember!
-	GUI.EndGroup ();
-	
-if (doWindow3)
-	windowRect3 = GUI.Window (3, windowRect3, DoMyWindow3, "");
-	//now adjust to the group. (0,0) is the topleft corner of the group.
-	GUI.BeginGroup (Rect (0,0,100,100));
-	// End the group we started above. This is very important to remember!
-	GUI.EndGroup ();
+
 }
