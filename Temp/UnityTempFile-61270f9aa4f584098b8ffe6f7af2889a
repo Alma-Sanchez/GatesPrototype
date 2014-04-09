@@ -39,6 +39,7 @@
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
 'Assets/Dungeon Art Pack/AnimateSprite.cs'
+'Assets/Prefabs/Hellionscript.cs'
 'Assets/Scripts/botScript.cs'
 'Assets/Scripts/bulletScript.cs'
 'Assets/Scripts/minionScript.cs'
