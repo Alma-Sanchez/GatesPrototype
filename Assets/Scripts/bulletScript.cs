@@ -19,14 +19,33 @@ public class bulletScript : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		//If the thing we just collided with is 'damagable' (a tag I created and applied to the wall), assume 
 		//we ran into the wall and make its health smaller.
-		if (other.gameObject.tag != "Player") {
+		if (other.gameObject.name != "Player"){
 			if (other.gameObject.tag == "takesDamage") {
-				Hellionscript hs = other.gameObject.GetComponent<Hellionscript> ();
-				hs.currentHealth -= 1;
-				
-				//If the wall's health is 0, destroy it.
-				if (hs.currentHealth <= 0) {
-					Destroy (other.gameObject);
+				if (other.gameObject.name == "Minion1(Clone)"){
+					Hellionscript1 hs1 = other.gameObject.GetComponent<Hellionscript1> ();
+					hs1.currentHealth -= 1;
+					
+					//If the wall's health is 0, destroy it.
+					if (hs1.currentHealth <= 0) {
+						Destroy (other.gameObject);
+					}
+				else if (other.gameObject.name == "Minion2(Clone)"){
+					Hellionscript2 hs2 = other.gameObject.GetComponent<Hellionscript2> ();
+					hs2.currentHealth -= 1;
+					
+					//If the wall's health is 0, destroy it.
+					if (hs2.currentHealth <= 0) {
+						Destroy (other.gameObject);
+					}
+				}
+				else if (other.gameObject.name == "Minion3(Clone)"){
+					Hellionscript3 hs3 = other.gameObject.GetComponent<Hellionscript3> ();
+					hs3.currentHealth -= 1;
+					
+					//If the wall's health is 0, destroy it.
+					if (hs3.currentHealth <= 0) {
+						Destroy (other.gameObject);
+					}
 				}
 			}
 			else if(other.gameObject.tag == "tower"){
@@ -39,6 +58,7 @@ public class bulletScript : MonoBehaviour {
 				}
 			}
 			Destroy (gameObject);
+			}
 		}
 	}
 }

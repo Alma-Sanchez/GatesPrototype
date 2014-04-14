@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Dungeon Art Pack\AnimateSprite.cs" />
-     <Compile Include="Assets\Scripts\Hellionscript.cs" />
+     <Compile Include="Assets\Scripts\Hellionscript1.cs" />
+     <Compile Include="Assets\Scripts\Hellionscript2.cs" />
+     <Compile Include="Assets\Scripts\Hellionscript3.cs" />
      <Compile Include="Assets\Scripts\botScript.cs" />
      <Compile Include="Assets\Scripts\bulletScript.cs" />
      <Compile Include="Assets\Scripts\minionScript.cs" />

@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Hellionscript : MonoBehaviour {
-
+public class Hellionscript3 : MonoBehaviour {
+	
 	//Health
 	public float currentHealth =2;
-
-	//The thing that the bot will shoot
-	public GameObject thingToShoot;
-	//How often it will be shot
-	float shootTimer = 1f;
 	
 	//How fast the bot will move forward
 	float speed = 5f;
@@ -42,13 +37,13 @@ public class Hellionscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Death event
-		//if (currentHealth < 1) {
-		//	GameObject.Destroy (GameObject);
-		//};
 
+		//Death Stuff
+		if (currentHealth <= 0) {
+			Destroy(gameObject);
+		}
+		
 		//Update timers
-		shootTimer -= Time.deltaTime;
 		navTimer -= Time.deltaTime;
 		
 		if (navTimer < 0) {
@@ -108,28 +103,6 @@ public class Hellionscript : MonoBehaviour {
 		cc.Move (transform.forward * speed * Time.deltaTime);
 		
 		
-		//Shoot something every 1 second
-		/*
-		if (shootTimer < 0) {
-			shootTimer = 1f;
-			GameObject go = (GameObject)Instantiate (thingToShoot, transform.position, Quaternion.identity);
-			//Raise the position so it is off the ground
-			go.transform.position += Vector3.up * 1.5f;
-			go.transform.forward = transform.forward;
-			//The script attached to bullet controls the spawned object's movement forward and what happens when it 
-			//collides with something
-		}
-		*/
-		
 	}
 }
-
-
-
-
-
-
-
-
-
 
