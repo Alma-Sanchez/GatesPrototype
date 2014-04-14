@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Hellionscript : MonoBehaviour {
 
+	//Health
+	public float currentHealth =2;
+
 	//The thing that the bot will shoot
 	public GameObject thingToShoot;
 	//How often it will be shot
@@ -39,6 +42,11 @@ public class Hellionscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Death event
+		//if (currentHealth < 1) {
+		//	GameObject.Destroy (GameObject);
+		//};
+
 		//Update timers
 		shootTimer -= Time.deltaTime;
 		navTimer -= Time.deltaTime;

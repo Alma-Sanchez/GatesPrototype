@@ -21,11 +21,11 @@ public class bulletScript : MonoBehaviour {
 		//we ran into the wall and make its health smaller.
 		if (other.gameObject.tag != "Player") {
 			if (other.gameObject.tag == "takesDamage") {
-				minionScript mi = other.gameObject.GetComponent<minionScript> ();
-				mi.currentHealth -= 1;
+				Hellionscript hs = other.gameObject.GetComponent<Hellionscript> ();
+				hs.currentHealth -= 1;
 				
 				//If the wall's health is 0, destroy it.
-				if (mi.currentHealth <= 0) {
+				if (hs.currentHealth <= 0) {
 					Destroy (other.gameObject);
 				}
 			}
