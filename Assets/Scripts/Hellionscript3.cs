@@ -101,8 +101,27 @@ public class Hellionscript3 : MonoBehaviour {
 		}
 		//Move forward
 		cc.Move (transform.forward * speed * Time.deltaTime);
-		
-		
+	}
+	//Damage Dealing
+	void OnTriggerEnter(Collider other) {
+		//If the thing we just collided with is 'damagable' (a tag I created and applied to the tower, other minions, and the Tower), assume 
+		//we ran into the wall and make its health smaller.
+		if (other.gameObject.tag == "tower") {
+			towerScript tw = other.gameObject.GetComponent<towerScript>();
+			tw.currentHealth -= 1;
+			
+			//If the wall's health is 0, destroy it.
+			if (tw.currentHealth <= 0) {
+				Destroy(other.gameObject);
+			}
+			
+			//Self-destruct
+			Destroy(gameObject);
+		}
+		if (other.gameObject.tag == "Finish") {
+			//Self-destruct
+			Destroy(gameObject);
+		}
 	}
 }
 
