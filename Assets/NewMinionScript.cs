@@ -1,20 +1,17 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class Hellionscript1 : MonoBehaviour {
-
-	//Health
-	public float currentHealth = 2;
-
-	//How fast the bot will move forward
-	float speed = 5f;
+public class NewMinionScript : MonoBehaviour
+{
+	public float minionHealth = 2;	
+	float Botspeed = 10f;
 	
 	//Variables that control how often the bot will choose where to look/move
 	float navRate = 3.5f;
 	float navTimer;
 	
 	//How much bot is able to look while considering where to move
-	float fieldOfView = 270f;
+	float fieldOfView = 180f;
 	//How many rays the bot will use across its fieldOfView when deciding where to move
 	float viewResultion = 7f;
 	
@@ -22,8 +19,7 @@ public class Hellionscript1 : MonoBehaviour {
 	int layerMask;
 	GameObject tower1;
 	CharacterController cc;
-	
-	// Use this for initialization
+
 	void Start () {
 		cc = gameObject.GetComponent<CharacterController> ();
 		tower1 = GameObject.Find ("Tower1");
@@ -37,12 +33,12 @@ public class Hellionscript1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		//Death Stuff
-		if (currentHealth <= 0) {
+		if (minionHealth <= 0) {
 			Destroy(gameObject);
 		}
-
+		
 		//Update timers
 		navTimer -= Time.deltaTime;
 		
@@ -58,7 +54,7 @@ public class Hellionscript1 : MonoBehaviour {
 			RaycastHit hit;
 			Physics.Raycast (rayToTower1, out hit, Mathf.Infinity, layerMask);
 			bool foundTower1 = false;
-
+			
 			//Debug.DrawRay (transform.position, vectorToTower1.normalized * 1000f);
 			//The code below checks to see what the rayToTower1 collided with
 			if (hit.collider != null) {
@@ -101,10 +97,11 @@ public class Hellionscript1 : MonoBehaviour {
 			}
 		}
 		//Move forward
-		cc.Move (transform.forward * speed * Time.deltaTime);
-		}
+		cc.Move (transform.forward * Botspeed * Time.deltaTime);
+	}
+
 	//Damage Dealing
-	/*void OnTriggerEnter(Collider other) {
+	void OnTriggerEnter(Collider other) {
 		//If the thing we just collided with is 'damagable' (a tag I created and applied to the tower, other minions, and the Tower), assume 
 		//we ran into the wall and make its health smaller.
 		if (other.gameObject.tag == "tower") {
@@ -123,7 +120,6 @@ public class Hellionscript1 : MonoBehaviour {
 				//Destroy(gameObject.tag);
 		}
 	}
-	*/
 }
 
 

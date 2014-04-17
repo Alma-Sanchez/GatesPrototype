@@ -11,11 +11,12 @@ public class spawnScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		startingNumberOfMinions = numberOfMinions;
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		startingNumberOfMinions = numberOfMinions;
 		if (spawnTimer <= 0) {
 			timer -= Time.deltaTime;
 			if (timer <= 0){

@@ -23,6 +23,6 @@ public class towerScript : MonoBehaviour {
 		}
 	}
 	void OnGUI(){
-		GUI.Box(new Rect(51,25,135,25),"Tower 1 health: "+currentHealth.ToString("f0"));
+		GUI.Box(new Rect(150,15,130,25),"Tower 1 health: "+currentHealth.ToString("f0"));
 	}	
 }
