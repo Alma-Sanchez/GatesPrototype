@@ -2,15 +2,15 @@
 using System.Collections;
 
 public class ScoreAndHealth : MonoBehaviour {
-	public float overallScore;
+	public float overallScore = 0;
 
 	void Start () {
 	}
 
 	void Update () {
-		overallScore = Time.deltaTime;
+		overallScore++;
 	}
 	void OnGui(){
-		GUI.Box(new Rect(20,15,300,50),"Score: "+overallScore.ToString("f0"));
+		//GUI.Box (new Rect(20,25,300,300),"Score"+overallScore.ToString);
 	}
 }
