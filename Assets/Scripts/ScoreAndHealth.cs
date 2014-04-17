@@ -10,7 +10,7 @@ public class ScoreAndHealth : MonoBehaviour {
 	void Update () {
 		overallScore++;
 	}
-	void OnGui(){
-		//GUI.Box (new Rect(20,25,300,300),"Score"+overallScore.ToString);
+	void OnGUI(){
+		//GUI.Box(new Rect(20,25,300,300),"Score: "+overallScore.ToString);
 	}
 }

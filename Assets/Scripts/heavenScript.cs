@@ -3,25 +3,26 @@ using System.Collections;
 
 public class heavenScript : MonoBehaviour {
 	//Heaven Health
-	public int heavevnHealth = 50;
+	public int heavenHealth = 50;
+
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag=="takeDamage"){
-			heavevnHealth -=1;
-
+			heavenHealth -=1;
 		}
+	}
 
+	void OnGUI(){
+		GUI.Box(new Rect(25,25,135,25),"Heaven health: "+heavenHealth.ToString("f0"));
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (heavevnHealth <= 0) {
+		if (heavenHealth <= 0) {
 			Destroy(gameObject);
 		}
 	}
-
 }
